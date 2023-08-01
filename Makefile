@@ -3,7 +3,7 @@ mycalc : test.tab.o lex.yy.o header.o
 	g++ -o mycalc test.tab.o lex.yy.o header.o
 
 #構文解析
-yy.tab.o : test.y
+test.tab.o : test.y
 	bison -d test.y
 	g++ -c test.tab.c
 
