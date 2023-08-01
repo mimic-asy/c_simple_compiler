@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <stdlib.h>
+#include <string.h>
+
 
 //構造体の宣言
 

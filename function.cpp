@@ -7,7 +7,7 @@
 //<, <=, >, >=
 int comp(Node * node1, char str, Node * node3){
   if(str == 'LT'){
-    if(node1.value < node3.value){
+    if(node1->value < node3->value){
         return 1;
     }
     else{
@@ -15,7 +15,7 @@ int comp(Node * node1, char str, Node * node3){
     }
   }
   else if(str == 'LE'){
-    if(node1.value <= node3.value){
+    if(node1->value <= node3->value){
         return 1;
     }
     else{
@@ -23,7 +23,7 @@ int comp(Node * node1, char str, Node * node3){
     }
   }
   else if(str == 'GT'){
-    if(node1.value > node3.value){
+    if(node1->value > node3->value){
         return 1;
     }
     else{
@@ -31,7 +31,7 @@ int comp(Node * node1, char str, Node * node3){
     }
   }
   else if(str == 'GE'){
-    if(node1.value >= node3.value){
+    if(node1->value >= node3->value){
         return 1;
     }
     else{
@@ -45,14 +45,14 @@ int comp(Node * node1, char str, Node * node3){
 
 int NEEQ(Node * node1, char * str, Node * node3) {
     if (strcmp(str, "EQ") == 0) {
-        if( node1.value == node3.value){
+        if( node1->value == node3->value){
           return 1;
         }
         else{
           return 0;
         }
     } else if (strcmp(str, "NEQ") == 0) {
-      if(node1.value != node3.value){
+      if(node1->value != node3->value){
         return 1;
       }
       else{
@@ -64,29 +64,24 @@ int NEEQ(Node * node1, char * str, Node * node3) {
 
 //+,-,*,/
 
-int calc(Node * node1, char * str, Node * node3){
-  int result;
-  if(str == 'ADD'){
-    result = node1.value + node3.value;
+int calc(Node * node1, char * str, Node * node3) {
+    int result;
+    if (strcmp(str, "ADD") == 0) {
+        result = node1->value + node3->value;
+    } else if (strcmp(str, "SUB") == 0) {
+        result = node1->value - node3->value;
+    } else if (strcmp(str, "MUL") == 0) {
+        result = node1->value * node3->value;
+    } else if (strcmp(str, "DIV") == 0) {
+        result = node1->value / node3->value;
+    }
     return result;
-  }
-  else if(str == 'SUB'){
-    result = node1.value - node3.value;
-    return result;
-  }
-  else if(str == 'MUL'){
-    result = node1.value * node3.value;
-    return result;
-  }
-  else if(str == 'DIV'){
-    result = node1.value / node3.value;
-    return result;
-  }
 }
+
 
 Node *makeNode(Node * node1){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = node1.value;
+  newnode->value = node1->value;
   return newnode;
 }
 
