@@ -38,6 +38,7 @@ int comp(Node * node1, const char *str, Node * node3){
         return 0;
     }
   }
+  return 0;
 }
 
 
@@ -59,6 +60,7 @@ int NEEQ(Node * node1, const char * str, Node * node3) {
         return 0;
       }
     }
+    return 0;
 }
 
 
@@ -100,7 +102,7 @@ Node *NEEQNode(Node * node1, const char * str, Node * node3) {
 }
 
 
-Node *calcNode(Node * node1, char *str, Node * node3){
+Node *calcNode(Node * node1, const char *str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
   newnode->value = calc(node1, str, node3);
   return newnode;

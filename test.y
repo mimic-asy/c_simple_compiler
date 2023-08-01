@@ -13,7 +13,7 @@ extern FILE* yyin ;
 %}
 
 %union{
-    struct Node *node;
+    struct Node* node;
 }
 
 %token <node> INT
@@ -30,7 +30,7 @@ extern FILE* yyin ;
 program : stmt
         | program stmt
         ;
-stmt    : expr SN 
+stmt    : expr SN
         | SN {exit(0);}
         ;
 expr    :term
