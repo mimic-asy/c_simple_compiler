@@ -5,8 +5,8 @@
 #include <stdbool.h>
 
 //<, <=, >, >=
-int comp(Node * node1, char str, Node * node3){
-  if(str == 'LT'){
+int comp(Node * node1, const char *str, Node * node3){
+  if(strcmp(str,"LT") == 0){
     if(node1->value < node3->value){
         return 1;
     }
@@ -14,7 +14,7 @@ int comp(Node * node1, char str, Node * node3){
         return 0;
     }
   }
-  else if(str == 'LE'){
+  else if(strcmp(str,"LE") == 0){
     if(node1->value <= node3->value){
         return 1;
     }
@@ -22,7 +22,7 @@ int comp(Node * node1, char str, Node * node3){
         return 0;
     }
   }
-  else if(str == 'GT'){
+  else if(strcmp(str,"GT") == 0){
     if(node1->value > node3->value){
         return 1;
     }
@@ -30,7 +30,7 @@ int comp(Node * node1, char str, Node * node3){
         return 0;
     }
   }
-  else if(str == 'GE'){
+  else if(strcmp(str,"GE") == 0){
     if(node1->value >= node3->value){
         return 1;
     }
@@ -43,7 +43,7 @@ int comp(Node * node1, char str, Node * node3){
 
 //==, !=
 
-int NEEQ(Node * node1, char * str, Node * node3) {
+int NEEQ(Node * node1, const char * str, Node * node3) {
     if (strcmp(str, "EQ") == 0) {
         if( node1->value == node3->value){
           return 1;
@@ -64,7 +64,7 @@ int NEEQ(Node * node1, char * str, Node * node3) {
 
 //+,-,*,/
 
-int calc(Node * node1, char * str, Node * node3) {
+int calc(Node * node1, const char * str, Node * node3) {
     int result;
     if (strcmp(str, "ADD") == 0) {
         result = node1->value + node3->value;
@@ -86,14 +86,14 @@ Node *makeNode(Node * node1){
 }
 
 
-Node *compNode(Node * node1, char * str, Node * node3){
+Node *compNode(Node * node1, const char * str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
   newnode->value = comp(node1, str, node3);
   return newnode;
 }
 
 
-Node *NEEQNode(Node * node1, char * str, Node * node3) {
+Node *NEEQNode(Node * node1, const char * str, Node * node3) {
     Node *newnode = (Node *)malloc(sizeof(Node));
     newnode->value = NEEQ(node1, str, node3);
     return newnode;
