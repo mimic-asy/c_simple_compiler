@@ -12,8 +12,8 @@ lex.yy.o : test.l
 	flex test.l
 	g++ -c lex.yy.c
 
-header.o : header.cpp
-	g++ -c header.cpp
+header.o : header.hpp
+	g++ -c header.hpp
 
 
 # clean:; rm mycalc y.tab.c y.tab.h lex.yy.cc *.o
