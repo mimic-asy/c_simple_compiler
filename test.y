@@ -30,7 +30,7 @@ extern FILE* yyin ;
 program : stmt
         | program stmt
         ;
-stmt    : expr SN
+stmt    : expr SN { printf(">> %d\n", $1->value) ; }
         | SN {exit(0);}
         ;
 expr    :term

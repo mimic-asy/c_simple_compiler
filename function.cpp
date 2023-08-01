@@ -41,9 +41,7 @@ int comp(Node * node1, const char *str, Node * node3){
   return 0;
 }
 
-
 //==, !=
-
 int NEEQ(Node * node1, const char * str, Node * node3) {
     if (strcmp(str, "EQ") == 0) {
         if( node1->value == node3->value){
@@ -63,9 +61,7 @@ int NEEQ(Node * node1, const char * str, Node * node3) {
     return 0;
 }
 
-
 //+,-,*,/
-
 int calc(Node * node1, const char * str, Node * node3) {
     int result;
     if (strcmp(str, "ADD") == 0) {
@@ -80,30 +76,34 @@ int calc(Node * node1, const char * str, Node * node3) {
     return result;
 }
 
-
 Node *makeNode(Node * node1){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = node1->value;
+  if (newnode != NULL) {
+    newnode->value = node1->value;
+  }
   return newnode;
 }
-
 
 Node *compNode(Node * node1, const char * str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = comp(node1, str, node3);
+  if (newnode != NULL) {
+    newnode->value = comp(node1, str, node3);
+  }
   return newnode;
 }
 
-
 Node *NEEQNode(Node * node1, const char * str, Node * node3) {
     Node *newnode = (Node *)malloc(sizeof(Node));
-    newnode->value = NEEQ(node1, str, node3);
+    if (newnode != NULL) {
+      newnode->value = NEEQ(node1, str, node3);
+    }
     return newnode;
 }
 
-
 Node *calcNode(Node * node1, const char *str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = calc(node1, str, node3);
+  if (newnode != NULL) {
+    newnode->value = calc(node1, str, node3);
+  }
   return newnode;
 }

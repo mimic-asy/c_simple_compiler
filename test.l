@@ -28,4 +28,5 @@ extern "C" int yywrap( void ){ return 1 ; }
 ">"   return GT;
 ">="  return GE;
 
-0|[1-9][0-9] { yylval.node->value = atoi(yytext); return INT; }
+[0-9]+  {   yylval.node = new Node;
+            yylval.node->value = atoi(yytext); return INT; }
