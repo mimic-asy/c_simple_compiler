@@ -7,10 +7,10 @@ typedef struct Node{
 int value;
 }Node;
 
-int NEEQ(Node * $1, char * $2, Node * $3);
-int comp(Node * $1, char * $2, Node * $3);
-int calc(Node * $1, char * $2, Node * $3);
-Node *makeNode(Node * $1);
-Node *compNode(Node * $1, char * $2, Node * $3);
-Node *NEEQNode(Node * $1, char * $2, Node * $3);
-Node *calcNode(Node * $1, char * $2, Node * $3);
+int NEEQ(Node * node1, char * node2, Node * node3);
+int comp(Node * node1, char * node2, Node * node3);
+int calc(Node * node1, char * node2, Node * node3);
+Node *makeNode(Node * node1);
+Node *compNode(Node * node1, char * node2, Node * node3);
+Node *NEEQNode(Node * node1, char * node2, Node * node3);
+Node *calcNode(Node * node1, char * node2, Node * node3);
