@@ -1,31 +1,28 @@
-WS   " "
-N   "\n"
-ADD  "+"
-SUB  "-"
-MUL  "*"
-DIV  "/"
-RAP [()]
-NUMBER [1-9][[:digit:]]*|0
-EQ  "=="
-LT   "<"
-GT   ">"
-LE  "<="
-GE  ">="
-NE  "!="
+%{
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    #include "header.hpp"
+    #include "test.tab.h"
+%}
 
 %%
-{ADD} {return ADD;}
-{NUMBER} {yylval = atoi(yytext); return(NUMBER);}
-{SUB} {return SUB;}
-{MUL} {return MUL;}
-{DIV} {return DIV;}
-{EQ}  {return EQ;}
-{LE}  {return LE;}
-{GE}  {return GE;}
-{LT}  {return LT;}
-{GT}  {return GT;}
-{NE}  {return NE;}
-{WS}
-{N} {return N;}
-.
+[ \t\n]
+"/n" { return SN; }
+"+" {return ADD; }
+"-" {return SUB; }
+"*" {return MUL; }
+"/" {return DIV; }
+"(" {return LPAR; }
+")" {return RPAR; }
+"==" {return EQ; }
+"!=" {return NEQ; }
+"<" {return LT; }
+"<=" {return LE; }
+">" {return GT; }
+">=" {return GE; }
+
+0|[1-9][0-9] { yylval.value = atoi(yytext); return INT; }
+
 %%
