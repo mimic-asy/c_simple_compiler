@@ -5,8 +5,8 @@
 #include <stdbool.h>
 
 //<, <=, >, >=
-int comp(Node * node1, char node2, Node * node3){
-  if(node2 == 'LT'){
+int comp(Node * node1, char str, Node * node3){
+  if(str == 'LT'){
     if(node1.value < node3.value){
         return 1;
     }
@@ -14,7 +14,7 @@ int comp(Node * node1, char node2, Node * node3){
         return 0;
     }
   }
-  else if(node2 == 'LE'){
+  else if(str == 'LE'){
     if(node1.value <= node3.value){
         return 1;
     }
@@ -22,7 +22,7 @@ int comp(Node * node1, char node2, Node * node3){
         return 0;
     }
   }
-  else if(node2 == 'GT'){
+  else if(str == 'GT'){
     if(node1.value > node3.value){
         return 1;
     }
@@ -30,7 +30,7 @@ int comp(Node * node1, char node2, Node * node3){
         return 0;
     }
   }
-  else if(node2 == 'GE'){
+  else if(str == 'GE'){
     if(node1.value >= node3.value){
         return 1;
     }
@@ -43,15 +43,15 @@ int comp(Node * node1, char node2, Node * node3){
 
 //==, !=
 
-int NEEQ(Node * node1, char * node2, Node * node3) {
-    if (strcmp(node2, "EQ") == 0) {
+int NEEQ(Node * node1, char * str, Node * node3) {
+    if (strcmp(str, "EQ") == 0) {
         if( node1.value == node3.value){
           return 1;
         }
         else{
           return 0;
         }
-    } else if (strcmp(node2, "NEQ") == 0) {
+    } else if (strcmp(str, "NEQ") == 0) {
       if(node1.value != node3.value){
         return 1;
       }
@@ -64,21 +64,21 @@ int NEEQ(Node * node1, char * node2, Node * node3) {
 
 //+,-,*,/
 
-int calc(Node * node1, char * node2, Node * node3){
+int calc(Node * node1, char * str, Node * node3){
   int result;
-  if(node2 == 'ADD'){
+  if(str == 'ADD'){
     result = node1.value + node3.value;
     return result;
   }
-  else if(node2 == 'SUB'){
+  else if(str == 'SUB'){
     result = node1.value - node3.value;
     return result;
   }
-  else if(node2 == 'MUL'){
+  else if(str == 'MUL'){
     result = node1.value * node3.value;
     return result;
   }
-  else if(node2 == 'DIV'){
+  else if(str == 'DIV'){
     result = node1.value / node3.value;
     return result;
   }
@@ -91,22 +91,22 @@ Node *makeNode(Node * node1){
 }
 
 
-Node *compNode(Node * node1, char * node2, Node * node3){
+Node *compNode(Node * node1, char * str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = comp(node1, node2, node3);
+  newnode->value = comp(node1, str, node3);
   return newnode;
 }
 
 
-Node *NEEQNode(Node * node1, char * node2, Node * node3) {
+Node *NEEQNode(Node * node1, char * str, Node * node3) {
     Node *newnode = (Node *)malloc(sizeof(Node));
-    newnode->value = NEEQ(node1, node2, node3);
+    newnode->value = NEEQ(node1, str, node3);
     return newnode;
 }
 
 
-Node *calcNode(Node * node1, char *node2, Node * node3){
+Node *calcNode(Node * node1, char *str, Node * node3){
   Node *newnode = (Node *)malloc(sizeof(Node));
-  newnode->value = calc(node1, node2, node3);
+  newnode->value = calc(node1, str, node3);
   return newnode;
 }
