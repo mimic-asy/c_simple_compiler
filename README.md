@@ -27,7 +27,7 @@
 何も入力をせずに改行を行うとこのプログラムは終了する。
 
 
-* 動かし方
+## 動かし方
 ```
 git clone git@github.com:mimic-asy/c_simple_compiler.git
 make
